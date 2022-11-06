@@ -23,7 +23,7 @@ avg_buf = [0,0,0] # Inisialisasi lists
 for x in range(3):
     for y in range(3):
         avg_buf[y] = st.mean(percepatan[x][y])
-    rata_rata[x] = st.mean(avg_buf) # Hitung percepatan untuk masing-masing sudut
+    rata_rata[x] = st.mean(avg_buf) # Hitung rata-rata percepatan untuk masing-masing sudut
 
 df = pd.DataFrame({
     "Sudut (°)": sudut,
