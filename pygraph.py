@@ -24,11 +24,20 @@ for x in range(3):
     for y in range(3):
         avg_buf[y] = st.mean(percepatan[x][y])
     rata_rata[x] = st.mean(avg_buf) # Hitung rata-rata percepatan untuk masing-masing sudut
+    print(rata_rata[x])
 
 df = pd.DataFrame({
     "Sudut (°)": sudut,
-    "Percepatan (m/s²)": rata_rata
+    "Percepatan (m/s²)": rata_rata,
 }) #Buat data frame untuk grafik
 #Buat grafik percepatan dan sudut
-fig = px.line(df, x="Sudut (°)", y="Percepatan (m/s²)", title="Grafik percepatan dengan sudut") 
+fig = px.line(df, x="Sudut (°)", y="Percepatan (m/s²)", title="Grafik percepatan dengan sudut", template="plotly_dark") 
+fig.update_traces(line_color='#aa23ff', line_width=5)
+fig.update_layout(
+    xaxis = dict(
+        tickmode = 'linear',
+        tick0 = 0,
+        dtick = 1
+    )
+)
 fig.show()
