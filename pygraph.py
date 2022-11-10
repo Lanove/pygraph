@@ -8,9 +8,9 @@ percepatan = [
                     [1.05,1.30,1.09,1.13,0.41], # l = 0,8m
                     [1.24,1.01,0.98,1.45,2.02]  # l = 1,0m
                 ],  # Data percepatan sudut 5
-                [   [0.49,0.54,0.32,0.54,0.47], # l = 0,6m
+                [   [0.41,1.15,0.49,0.43,0.51], # l = 0,6m
                     [0.42,0.72,0.60,0.51,0.45], # l = 0,8m
-                    [0.69,1.91,0.82,0.72,0.86]  # l = 1,0m
+                    [0.82,0.90,0.54,0.89,1.25]  # l = 1,0m
                 ],
                 [   # Data percepatan sudut 10
                     [0.18,0.15,0.22,0.32,0.25], # l = 0,6m
@@ -26,10 +26,12 @@ for x in range(3):
     rata_rata[x] = st.mean(avg_buf) # Hitung rata-rata percepatan untuk masing-masing sudut
     print(rata_rata[x])
 
+#Buat data frame untuk grafik
 df = pd.DataFrame({
     "Sudut (°)": sudut,
     "Percepatan (m/s²)": rata_rata,
-}) #Buat data frame untuk grafik
+})
+
 #Buat grafik percepatan dan sudut
 fig = px.line(df, x="Sudut (°)", y="Percepatan (m/s²)", title="Grafik percepatan dengan sudut", template="plotly_dark") 
 fig.update_traces(line_color='#aa23ff', line_width=5)
